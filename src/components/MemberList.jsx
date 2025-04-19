@@ -2,15 +2,15 @@ import { useState } from 'react';
 import axios from 'axios';
 import MemberItem from './MemberItem';
 const BASE_URL = import.meta.env.PROD
-   ? '/api/' // 프로덕션 환경
-   : 'http://localhost:3000/api/'; // 개발 환경
+   ? '/api' // 프로덕션 환경
+   : 'http://localhost:3000/api'; // 개발 환경
 
 function MemberList() {
    const [members, setMembers] = useState([]);
 
    const fetchMembers = async () => {
       try {
-         const response = await axios.get(`${BASE_URL}members`);
+         const response = await axios.get(`${BASE_URL}/members`);
          setMembers(response.data); // 예: [{ name, email, joinDate, gender, nationality }, ...]
       } catch (error) {
          console.error('회원 목록 가져오기 실패:', error);

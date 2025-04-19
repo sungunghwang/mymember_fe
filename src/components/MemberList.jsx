@@ -7,7 +7,7 @@ function MemberList() {
 
    const fetchMembers = async () => {
       try {
-         const response = await axios.get('http://localhost:3000/api/members');
+         const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/members`);
          setMembers(response.data); // 예: [{ name, email, joinDate, gender, nationality }, ...]
       } catch (error) {
          console.error('회원 목록 가져오기 실패:', error);
